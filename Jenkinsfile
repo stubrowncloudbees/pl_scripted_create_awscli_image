@@ -1,5 +1,5 @@
-def label = "pl_scripted_create_awscli_image-${UUID.randomUUID().toString()}"
-def image_name = "stuartcbrown/awscli:${label}"
+def label = "pl_scripted_docker_dind-${UUID.randomUUID().toString()}"
+def image_name = "stuartcbrown/jentest:${label}"
 podTemplate(label: label,
         containers: [
             containerTemplate(name: 'docker', image: 'docker:17.12.1-ce-dind', privileged: true)
@@ -18,9 +18,6 @@ podTemplate(label: label,
                     sh "docker push $image_name"
 
                 }
-            }
-            stage("push to ecr"){
-                sh "ls"
             }
         }
     }
