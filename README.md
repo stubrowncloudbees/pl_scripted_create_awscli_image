@@ -1,0 +1,1 @@
+# pl_scripted_create_awscli_image
