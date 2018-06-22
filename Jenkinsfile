@@ -2,9 +2,9 @@ def label = "pl_scripted_create_awscli_image-${UUID.randomUUID().toString()}"
 def image_name = "stuartcbrown/awscli:${label}"
 podTemplate(label: label,
         containers: [
-                containerTemplate(name: 'docker', image: 'docker:17.12.1-ce-dind', privileged: true)
-        ]
-) {
+            containerTemplate(name: 'docker', image: 'docker:17.12.1-ce-dind', privileged: true)
+            ]
+        ) {
     node(label) {
         container("docker") {
             stage("docker") {
